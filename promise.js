@@ -27,10 +27,19 @@ function hobbyDetails(hobby) {
   })
 }
 
-login('bob@bob.pl', 'Bob18')
-  .then(data => getUserHobby())
-  .then(hobby=> hobbyDetails())
-  .then(detail=>console.log(detail))
-  .catch(err=>console.log(err))
+// login('bob@bob.pl', 'Bob18')
+//   .then(data => getUserHobby())
+//   .then(hobby=> hobbyDetails())
+//   .then(detail=>console.log(detail))
+//   .catch(err=>console.log(err))
+
+async function userDetail(){
+  const logged = await login('bob@bob.pl', 'Bob18')
+  const hobby = await getUserHobby(logged.userEmail)
+  const hobbyDetail = await hobbyDetails(hobby)
+  console.log(hobbyDetail)
+}
+
+userDetail()
 
 console.log('End')
