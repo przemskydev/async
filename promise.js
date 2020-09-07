@@ -34,10 +34,14 @@ function hobbyDetails(hobby) {
 //   .catch(err=>console.log(err))
 
 async function userDetail(){
-  const logged = await login('bob@bob.pl', 'Bob18')
-  const hobby = await getUserHobby(logged.userEmail)
-  const hobbyDetail = await hobbyDetails(hobby)
-  console.log(hobbyDetail)
+  try {
+    const logged = await login('bob@bob.pl', 'Bob18')
+    const hobby = await getUserHobby(logged.userEmail)
+    const hobbyDetail = await hobbyDetails(hobby)
+    console.log(hobbyDetail) 
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 userDetail()
