@@ -7,7 +7,16 @@ function login(email, password, callback) {
   }, 2000)
 }
 
-const userData = login('brzemeg@op.pl', '123123', user => console.log(user))
+function getUserHobby(callback) {
+  setTimeout(() => {
+    callback(['music', 'movies', 'sport'])
+  }, 2000)
+}
+
+const userData = login('brzemeg@op.pl', '123123', user => {
+  console.log(user)
+  getUserHobby(videos => console.log(videos))
+})
 
 
 console.log('End')
