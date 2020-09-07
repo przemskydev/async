@@ -13,9 +13,18 @@ function getUserHobby(callback) {
   }, 2000)
 }
 
+function hobbyDetails(callback) {
+  setTimeout(() => {
+    callback(['pop', 'jazz', 'rap'])
+  }, 2000);
+}
+
 const userData = login('brzemeg@op.pl', '123123', user => {
   console.log(user)
-  getUserHobby(videos => console.log(videos))
+  getUserHobby(hobby => {
+    console.log(hobby)
+    hobbyDetails(detail => console.log(detail))
+  })
 })
 
 
